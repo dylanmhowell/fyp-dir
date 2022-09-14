@@ -4,10 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" contet="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="{{ page.url }}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700..900&family=Roboto:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="/style.css">
+
+
     <title>{{ title }}</title>
+    <meta name="description" content="{{post.data.description}}"/>
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:title" content={{ post.data.title }}/>
+    <meta property="og:url" content={{ page.url }} />
+    <meta property="og:description" content={{post.data.description}} />
+    <meta property="og:image" content="{{post.data.image}}" />
+    <meta property="og:type" content="article" />
+
 </head>
 <body>
+
+    {% include 'header.njk' %}
     <h1>{{title}}</h1>
+    <main>
     {{ content | safe }}
+    </main>
+    {% include 'footer.njk' %}
+
 </body>
 </html>
